@@ -1,0 +1,17 @@
+* Strings should
+    * Inherit from Sized, Container[str] instead of Sequence[str], and
+    * Expose chars(self) -> Sequence[str].
+    * See: https://discuss.python.org/t/an-interesting-pytype-experiment-and-a-possible-extension-to-strings/23749/1
+
+* There should be no __lt__, etc. methods.  Instead, these should be global functions with multiple
+  dispatch.  Classes can register their dispatches.
+    * See: https://colab.research.google.com/drive/1-HQa5GOmV-uhTbv6EgnMfJYVgwuYMIrQ
+
+* Dataclasses should have been declared using a base class rather than a decorator.
+    * This would fix incompatibility with multiple inheritance and dataclasses.
+
+* The sequence protocol should be removed.
+    * See: https://discuss.python.org/t/deprecate-old-style-iteration-protocol/17863
+
+* The export mechanism should be simpler.  Perhaps, an export command that populates __all__ and
+  imports symbols.
