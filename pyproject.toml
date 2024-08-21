@@ -1,27 +1,5 @@
-[build-system]
-requires = ['setuptools', 'poetry_core>=1.0']
-build-backend = 'poetry.core.masonry.api'
-
-[tool.poetry]
-name = 'cmm'
-version = '0.6'
-description = ''
-# license = 'MIT'
-authors = ['Neil Girdhar <mistersheik@gmail.com>']
-readme = 'README.rst'
-repository = 'https://github.com/NeilGirdhar/cmm'
-classifiers = [
-  'Development Status :: 1 - Planning',
-  'Intended Audience :: Developers',
-  'Operating System :: OS Independent',
-  'Programming Language :: Python',
-  'Programming Language :: Python :: 3',
-  'Programming Language :: Python :: 3.12',
-  'Typing :: Typed',
-]
-
-[tool.poetry.dependencies]
-python = '>=3.12, <3.13'
+[project]
+name = 'experiments'
 
 [tool.pylint.master]
 jobs = 0
