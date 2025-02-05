@@ -32,7 +32,7 @@ class RelativisticGradient[Variables](ThirdOrderGradientTransformation[HarmonicS
     def third_order_update(self,
                            gradient: Variables,
                            state: HarmonicState[Variables],
-                           parameters: None | Variables,
+                           parameters: Variables | None,
                            hessian_vector_product: Callable[[Variables], Variables],
                            hessian_diagonal: Variables
                            ) -> tuple[Variables, HarmonicState[Variables]]:

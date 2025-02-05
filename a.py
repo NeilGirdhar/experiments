@@ -1,4 +1,3 @@
-# ruff: noqa: all
 # pyright: basic
 
 numbers = set(range(1, 10))

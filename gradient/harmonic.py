@@ -38,7 +38,7 @@ class HarmonicGradient[Variables](SecondOrderGradientTransformation[HarmonicStat
     def second_order_update(self,
                             gradient: Variables,
                             state: HarmonicState[Variables],
-                            parameters: None | Variables,
+                            parameters: Variables | None,
                             hessian_vector_product: Callable[[Variables], Variables]) -> (
                                 tuple[Variables, HarmonicState[Variables]]):
         friction = tree.map(jnp.exp, state.log_friction)

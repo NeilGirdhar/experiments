@@ -30,7 +30,8 @@ class MomentumGradient[Variables](GradientTransformation[MomentumState[Variables
     def update(self,
                gradient: Variables,
                state: MomentumState[Variables],
-               parameters: None | Variables) -> tuple[Variables, MomentumState[Variables]]:
+               parameters: Variables | None
+               ) -> tuple[Variables, MomentumState[Variables]]:
         # Calculate gradient.
         negative_gradient = tree.map(jnp.negative, gradient)
         new_momentum = self._leaky_integrate(state.momentum, negative_gradient)

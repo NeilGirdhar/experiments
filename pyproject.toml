@@ -1,5 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = 'experiments'
+version = '0.1'
+requires-python = '>=3.12, <3.14'
+
+[tool.uv]
+package = false
+dev-dependencies = [
+    "isort>=5.13.2",
+    "jupyter>=1.1.1",
+    "mypy>=1.14.1",
+    "pylint>=3.3.3",
+    "pyright>=1.1.392.post0",
+    "ruff>=0.9.2",
+    "vulture>=2.14",
+]
 
 [tool.pylint.master]
 jobs = 0
@@ -90,7 +108,8 @@ min-similarity-lines = 20
 ignore-imports = 'yes'
 
 [tool.pyright]
-include = ['cmm', 'tests']
+include = []
+exclude = ['b.py']
 stubPath = ''
 venvPath = '.'
 venv = '.venv'
@@ -126,7 +145,7 @@ reportUntypedNamedTuple = true
 useLibraryCodeForTypes = false
 
 [tool.mypy]
-files = ['cmm', 'tests']
+files = ['.']
 check_untyped_defs = true
 disallow_any_generics = true
 disallow_incomplete_defs = true
@@ -167,7 +186,7 @@ module = [
 ignore_missing_imports = true
 
 [tool.ruff]
-extend-exclude = ['__init__.py']
+extend-exclude = ['__init__.py', 'a.py', 'b.py']
 line-length = 100
 target-version = "py312"
 
@@ -175,8 +194,6 @@ target-version = "py312"
 preview = true
 select = ['ALL']
 ignore = [
-  'ANN101', # Missing type annotation for self.
-  'ANN102', # Missing type annotation for cls.
   'ANN401', # Dynamically typed expressions (Any).
   'ARG001', # Unused function argument.
   'ARG002', # Unused method argument.
@@ -192,11 +209,15 @@ ignore = [
   'D103', # Missing docstring in public function.
   'D105', # Missing docstring in magic method.
   'D107', # Missing docstring in __init__.
+  'DOC201', # return is not documented in docstring.
+  'DOC202', # Docstring should not have a returns section because the function doesn't return anything.
+  'DOC501', # Raised exception `ValueError` missing from docstring.
   'ERA001', # Commented-out code.
   'FBT003', # Boolean positional value in function call.
   'FIX002', # Line contains TODO, consider resolving the issue.
   'G004', # Logging statement uses f-string.
   'I001', # Import block is un-sorted or un-formatted.
+  'INP001', # File is part of an implicit namespace package. Add an `__init__.py`.
   'PD008', # Use .loc instead of .at. If speed is important, use NumPy.
   'PGH003', # Use specific rule codes when ignoring type issues.
   'PLR0913', # Too many arguments in function definition.
@@ -205,9 +226,9 @@ ignore = [
   'Q000', # Single quotes found but double quotes preferred.
   'RUF021', # Parenthesize `a and b` expressions when chaining `and` and `or` together...
   'S101', # Assert used.
-  'TCH001', # Move application import into a type-checking block.
-  'TCH002', # Move third-party import into a type-checking block.
-  'TCH003', # Move standard library import into a type-checking block.
+  'TC001', # Move application import into a type-checking block.
+  'TC002', # Move third-party import into a type-checking block.
+  'TC003', # Move standard library import into a type-checking block.
   'TD002', # Missing author in TODO; try: # TODO(<author_name>): ....
   'TD003', # Missing issue link on the line following this TODO.
   'TID252', # Relative imports from parent modules are banned.
