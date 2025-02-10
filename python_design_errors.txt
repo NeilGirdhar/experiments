@@ -15,3 +15,13 @@
 
 * The export mechanism should be simpler.  Perhaps, an export command that populates __all__ and
   imports symbols.
+
+* All classes should be dataclasses.  That would ensure that members are all declared at the class
+  level.  It would also prevent odd creation or deletion of object members in various methods.
+
+* The __getitem__ function should have accepted its parameters as positional arguments:
+      def __getitem__(self, *args: Any) -> Any
+  rather than as a tuple.  This would distinguish x[some_tuple] from x[a, b, c].  It would also make
+  x[] meaningful rather than forcing the weird x[()].
+
+* Classes should have true constructors: https://discuss.python.org/t/true-constructors/80124
