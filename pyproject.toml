@@ -111,7 +111,7 @@ ignore-imports = "yes"
 
 [tool.pyright]
 include = []
-exclude = ["b.py"]
+exclude = ["b.py", '.venv', 'gradient']
 stubPath = ""
 venvPath = "."
 venv = ".venv"
