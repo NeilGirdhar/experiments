@@ -10,7 +10,7 @@ from tjax import JaxRealArray, leaky_integrate
 from tjax.dataclasses import dataclass, field
 from tjax.gradient import GradientState, SecondOrderGradientTransformation
 
-__all__ = ['HarmonicGradient', 'HarmonicState']
+__all__ = ["HarmonicGradient", "HarmonicState"]
 
 
 @dataclass

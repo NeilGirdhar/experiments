@@ -8,7 +8,7 @@ from tjax import JaxRealArray, leaky_integrate
 from tjax.dataclasses import dataclass
 from tjax.gradient import GradientState, GradientTransformation
 
-__all__ = ['MomentumGradient', 'MomentumState']
+__all__ = ["MomentumGradient", "MomentumState"]
 
 
 @dataclass

@@ -12,7 +12,7 @@ from tjax.gradient import ThirdOrderGradientTransformation
 
 from .harmonic import HarmonicState
 
-__all__ = ['RelativisticGradient']
+__all__ = ["RelativisticGradient"]
 
 
 @dataclass
