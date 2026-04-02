@@ -1,6 +1,6 @@
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["uv_build>=0.11.3,<0.12"]
+build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
@@ -10,16 +10,13 @@ dev = [
   "ruff>=0.15",
   "toml-sort>=0.24",
   "ty>=0.0.22",
-  "vulture>=2.14",
+  "vulture>=2.14"
 ]
 
 [project]
 name = "experiments"
 version = "0.1"
 requires-python = ">=3.14, <3.15"
-
-[tool.uv]
-package = false
 
 [tool.pyright]
 include = []
@@ -70,7 +67,7 @@ ignore = [
   "TC002", # Move third-party import into TYPE_CHECKING.
   "TC003", # Move stdlib import into TYPE_CHECKING.
   "TD002", # TODO missing author.
-  "TD003", # TODO missing issue link.
+  "TD003" # TODO missing issue link.
 ]
 
 [tool.ruff.lint.flake8-errmsg]
@@ -104,3 +101,9 @@ convention = "google"
 
 [tool.ruff.lint.pylint]
 max-args = 8
+
+[tool.uv]
+package = false
+
+[tool.uv.build-backend]
+module-root = ""
